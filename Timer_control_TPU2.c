@@ -108,3 +108,11 @@ void delay_us(unsigned short us)
 	// タイマのカウント開始
 	stop_TIMER();
 }
+
+void delay_s_dbl(double sec) {
+	// sec=2.500秒 => 2 & 500
+	unsigned short timerSec = (unsigned short) sec;
+	unsigned short timerMSec = (unsigned short) ((sec - timerSec) * 1000);
+	delay_s(timerSec);
+	delay_ms(timerMSec);
+}

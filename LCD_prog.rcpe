@@ -32,7 +32,9 @@
         <Path>tool.c</Path>
         <Path>Timer_control_TPU2.c</Path>
       </Category>
-      <Category Name="ex" />
+      <Category Name="ex">
+        <Path>music.c</Path>
+      </Category>
     </Files>
     <DebugOptions>
       <ConnectSettings>
@@ -103,6 +105,7 @@
           <Path>DefaultBuild\hwsetup.obj</Path>
           <Path>DefaultBuild\Timer_control_TPU2.obj</Path>
           <Path>DefaultBuild\lcd.obj</Path>
+          <Path>DefaultBuild\music.obj</Path>
         </LinkOrder>
         <CommonOptions />
       </BuildMode>

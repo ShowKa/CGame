@@ -172,6 +172,13 @@
       <TreeImageGuid>941832c1-fc3b-4e1b-94e8-01ea17128b42</TreeImageGuid>
       <ParentItem>95041111-386e-4088-b884-99bed70d7280</ParentItem>
     </Instance>
+    <Instance Guid="33475431-3b6c-4f7c-91cf-05ea91e77a6b">
+      <Name>music.c</Name>
+      <Type>File</Type>
+      <RelativePath>music.c</RelativePath>
+      <TreeImageGuid>941832c1-fc3b-4e1b-94e8-01ea17128b42</TreeImageGuid>
+      <ParentItem>78932f81-fa38-4946-9518-4c06f6861445</ParentItem>
+    </Instance>
   </Class>
   <Class Guid="fb98844b-2c27-4275-9804-f6e63e204da0">
     <Instance Guid="fb98844b-2c27-4275-9804-f6e63e204da0">
@@ -241,9 +248,11 @@
       <SourceItemType13>CSource</SourceItemType13>
       <SourceItemGuid14>81d2c772-9452-4f3e-b4ee-0828a356f522</SourceItemGuid14>
       <SourceItemType14>CSource</SourceItemType14>
-      <SourceItemGuid15>ef32f35d-d6eb-491d-a133-f2f192522644</SourceItemGuid15>
+      <SourceItemGuid15>33475431-3b6c-4f7c-91cf-05ea91e77a6b</SourceItemGuid15>
       <SourceItemType15>CSource</SourceItemType15>
-      <SourceItemCount>16</SourceItemCount>
+      <SourceItemGuid16>ef32f35d-d6eb-491d-a133-f2f192522644</SourceItemGuid16>
+      <SourceItemType16>CSource</SourceItemType16>
+      <SourceItemCount>17</SourceItemCount>
       <LastDeviceChangedCounter>0</LastDeviceChangedCounter>
     </Instance>
     <Instance Guid="9e208646-ccba-4100-a676-29b1efe6545f">
@@ -1233,6 +1242,10 @@ D_2=R_2
       <ItemAddTime>637175476370637715</ItemAddTime>
       <ItemAddTimeCount>0</ItemAddTimeCount>
     </Instance>
+    <Instance Guid="33475431-3b6c-4f7c-91cf-05ea91e77a6b">
+      <ItemAddTime>637177191927562157</ItemAddTime>
+      <ItemAddTimeCount>0</ItemAddTimeCount>
+    </Instance>
     <Instance Guid="988684d0-531e-4642-bee8-928e2ca9c094">
       <ItemAddTime>637177152390838239</ItemAddTime>
       <ItemAddTimeCount>0</ItemAddTimeCount>
@@ -1342,10 +1355,14 @@ D_2=R_2
       <SourceItem14-IsLockedByUser>False</SourceItem14-IsLockedByUser>
       <SourceItem14-BuildingTarget-0>True</SourceItem14-BuildingTarget-0>
       <SourceItem14-IndividualCompileOption-0>False</SourceItem14-IndividualCompileOption-0>
-      <TimeTagModified-SourceItem15--0>-8586195213940695019</TimeTagModified-SourceItem15--0>
+      <TimeTagModified-SourceItem15--0>-8586195168927213651</TimeTagModified-SourceItem15--0>
       <SourceItem15-IsLockedByUser>False</SourceItem15-IsLockedByUser>
       <SourceItem15-BuildingTarget-0>True</SourceItem15-BuildingTarget-0>
       <SourceItem15-IndividualCompileOption-0>False</SourceItem15-IndividualCompileOption-0>
+      <TimeTagModified-SourceItem16--0>-8586195213940695019</TimeTagModified-SourceItem16--0>
+      <SourceItem16-IsLockedByUser>False</SourceItem16-IsLockedByUser>
+      <SourceItem16-BuildingTarget-0>True</SourceItem16-BuildingTarget-0>
+      <SourceItem16-IndividualCompileOption-0>False</SourceItem16-IndividualCompileOption-0>
     </Instance>
   </Class>
   <Class Guid="44fa27c9-0aa0-4297-bd3b-2c5c5bdb8881">
