@@ -90,3 +90,10 @@ void LCD_locate_4th(unsigned char x) {
 void LCD_putchar(char moji) {
 	LCD_write(moji, 1);
 }
+
+void LCD_putstr(char *str) {
+	while(*str) {
+		LCD_putchar(*str);
+		str++;
+	}
+}

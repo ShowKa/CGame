@@ -15,6 +15,7 @@
 void sw_init();
 char getPushSwitchState();
 char getSlideSwitchState();
+char slide0IsOn(void);
 
 void sw_init() {
 	SW_IO = 0x00;
@@ -28,18 +29,22 @@ char getSlideSwitchState() {
 	return SW & 0x0f;
 }
 
-char slide0IsOn() {
-	return SW_0 = 1;
+char slide0IsOn(void) {
+	if (SW_0 == 1) {
+		return 0x01;
+	} else {
+		return 0x00;
+	}
 }
 
 char slide1IsOn() {
-	return SW_1 = 1;
+	return SW_1 == 1;
 }
 
 char slide2IsOn() {
-	return SW_2 = 1;
+	return SW_2 == 1;
 }
 
 char slide3IsOn() {
-	return SW_3 = 1;
+	return SW_3 == 1;
 }

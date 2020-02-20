@@ -34,6 +34,7 @@
       </Category>
       <Category Name="ex">
         <Path>music.c</Path>
+        <Path>clock.c</Path>
       </Category>
     </Files>
     <DebugOptions>
@@ -106,6 +107,7 @@
           <Path>DefaultBuild\Timer_control_TPU2.obj</Path>
           <Path>DefaultBuild\lcd.obj</Path>
           <Path>DefaultBuild\music.obj</Path>
+          <Path>DefaultBuild\clock.obj</Path>
         </LinkOrder>
         <CommonOptions />
       </BuildMode>
