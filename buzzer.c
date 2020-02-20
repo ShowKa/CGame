@@ -1,7 +1,13 @@
 #include "iodefine.h"
 
 void initBuzzer(void);
+void initBuzzer1(void);
+void initBuzzer2(void);
 void initBuzzer(void) {
+	initBuzzer1();
+	initBuzzer2();
+}
+void initBuzzer1(void) {
 	//★低消費電力モードの解除
 	//低消費電力モード設定レジスタのプロテクト解除
 	SYSTEM.PRCR.WORD = 0xA503;	//PRKEY[7:0] : 変更時はA5hを設定
@@ -14,7 +20,7 @@ void initBuzzer(void) {
 	//-----------------------------------------------------------------------------
 	//TPU3の動作設定
 	//1.タイマプリスケーラ（カウント速度）の設定
-	TPU3.TCR.BIT.TPSC = 6;	//内部クロック：6=PCLK/256, 5=PCLK/1024でカウント
+	TPU3.TCR.BIT.TPSC = 3;	//内部クロック：6=PCLK/256, 5=/1024, 3=/64でカウント
 			//46.8757[Hz]で動作（λ=21.33・・・・[uS]) = 1カウント当たり21.33・・・・[uS]
 	//2.入力クロックエッジ選択ビット（エッジ：入力信号電圧の立上り/立下りの瞬間）
 	TPU3.TCR.BIT.CKEG = 1;	//立ち上がりエッジでカウント
@@ -25,7 +31,7 @@ void initBuzzer(void) {
 	//TGRA（タイマジェネラルレジスタA）の設定
 	TPU3.TGRA = 30;
 	//--------------------------------------------------------------------------------
-	//P21動作設定
+	//Port21動作設定
 	// 各デバイスのPFSビットに設定するため、プロテクト解除(P720)
 	MPC.PWPR.BIT.B0WI = 0;	// PFSWEのプロテクション解除
 	MPC.PWPR.BIT.PFSWE = 1;	// PFSレジスタへの書き込み許可
@@ -35,6 +41,28 @@ void initBuzzer(void) {
 	MPC.PWPR.BIT.PFSWE = 0;	// PFSレジスタへの書き込み許可
 	MPC.PWPR.BIT.B0WI = 1;	// PFSWEのプロテクション解除
 	TPU3.TIORH.BIT.IOA = 3;
+}
+
+// TPU5 → Port13
+void initBuzzer2(void) {
+	// 省エネ解除
+	SYSTEM.PRCR.WORD = 0xA503;
+	SYSTEM.MSTPCRA.BIT.MSTPA13 = 0;
+	SYSTEM.PRCR.WORD = 0xA500;
+	//TPU9の動作設定
+	TPU5.TCR.BIT.TPSC = 3; //3 => PCLK/64
+	TPU5.TCR.BIT.CKEG = 1;
+	TPU5.TCR.BIT.CCLR = 1; //TGRAコンペアマッチ設定
+	TPU5.TMDR.BIT.MD = 0;
+	TPU5.TGRA = 30;
+	//Port13動作設定
+	MPC.PWPR.BIT.B0WI = 0;
+	MPC.PWPR.BIT.PFSWE = 1;
+	PORT1.PMR.BYTE = 0xff; // B3=Port13?
+	MPC.P13PFS.BIT.PSEL = 3; //3 => TIOCA5
+	MPC.PWPR.BIT.PFSWE = 0;	// PFSレジスタへの書き込み許可
+	MPC.PWPR.BIT.B0WI = 1;	// PFSWEのプロテクション解除
+	TPU5.TIOR.BIT.IOA = 3;
 }
 
 static double tempo = 60.0;
@@ -50,7 +78,7 @@ double getLength(int length) {
 	return _length * _tempo;
 }
 
-static double count = 208.0;
+static double count = 208.0 * 4.0; // TPSC=6=/256 => 208.0
 static double freq = 440.0;
 static const double diff = 1.059463;
 void upDownFreq(int upDown) {
@@ -82,5 +110,22 @@ void sound(int upDown, int length) {
 	delay_s_dbl(span);
 	TPUA.TSTR.BIT.CST3 = 0;
 	delay_ms(10);
+}
+
+void soundTPU5(void);
+void soundTPU5(void) {
+	// sound
+	TPUA.TSTR.BIT.CST5 = 0;
+	TPU5.TCNT = 0;
+	TPU5.TGRA = (int) 208 * 4; //XXXXXXXXXXXXXXXX
+	TPUA.TSTR.BIT.CST5 = 1;
+	
+	//while(TPU5.TSR.BIT.TGFA == 0);
+	//TPU5.TSR.BIT.TGFA = 0;
+	//while(TPU5.TSR.BIT.TGFA == 0);
+
+	// length
+	delay_s_dbl(5.0);
+	TPUA.TSTR.BIT.CST5 = 0;
 }
 
