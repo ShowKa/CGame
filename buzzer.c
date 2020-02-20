@@ -78,9 +78,11 @@ double getLength(int length) {
 	return _length * _tempo;
 }
 
-static double count = 208.0 * 4.0; // TPSC=6=/256 => 208.0
+static double count = 832.0; // TPSC=6=/256 => 208.0
 static double freq = 440.0;
 static const double diff = 1.059463;
+static const double diff_7 = 1.498306;
+static const double diff_12 = 2.0;
 void upDownFreq(int upDown) {
 	int i, absolue = upDown > 0 ? upDown : (-1 * upDown),
 		sign = upDown > 0 ? 1 : 0;
@@ -112,20 +114,50 @@ void sound(int upDown, int length) {
 	delay_ms(10);
 }
 
-void soundTPU5(void);
-void soundTPU5(void) {
+void sound7(int upDown, int length);
+void sound7(int upDown, int length) {
+	double before = freq, after, ratio, span;
+	upDownFreq(upDown);
+	after = freq;
+	ratio = after / before;
+	count = count / ratio;
+	// sound
+	TPUA.TSTR.BIT.CST3 = 0;
+	TPU3.TCNT = 0;
+	TPU3.TGRA = (int) count;
+	TPUA.TSTR.BIT.CST3 = 1;
+	// ”¼‰¹7‰º‚°‚é
+	TPUA.TSTR.BIT.CST5 = 0;
+	TPU5.TCNT = 0;
+	TPU5.TGRA = (int) (count / diff_7);
+	TPUA.TSTR.BIT.CST5 = 1;
+	// length
+	span = getLength(length);
+	delay_s_dbl(span);
+	TPUA.TSTR.BIT.CST3 = 0;
+	TPUA.TSTR.BIT.CST5 = 0;
+	delay_ms(10);
+}
+
+void soundTPU3_TEST(void);
+void soundTPU3_TEST(void) {
+	// sound
+	TPUA.TSTR.BIT.CST3 = 0;
+	TPU3.TCNT = 0;
+	TPU3.TGRA = (int) count;
+	TPUA.TSTR.BIT.CST3 = 1;
+	delay_s(5);
+	TPUA.TSTR.BIT.CST3 = 0;
+}
+
+void soundTPU5_TEST(void);
+void soundTPU5_TEST(void) {
 	// sound
 	TPUA.TSTR.BIT.CST5 = 0;
 	TPU5.TCNT = 0;
-	TPU5.TGRA = (int) 208 * 4; //XXXXXXXXXXXXXXXX
+	TPU5.TGRA = (int) count;
 	TPUA.TSTR.BIT.CST5 = 1;
-	
-	//while(TPU5.TSR.BIT.TGFA == 0);
-	//TPU5.TSR.BIT.TGFA = 0;
-	//while(TPU5.TSR.BIT.TGFA == 0);
-
-	// length
-	delay_s_dbl(5.0);
+	delay_s(5);
 	TPUA.TSTR.BIT.CST5 = 0;
 }
 
