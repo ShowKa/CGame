@@ -21,9 +21,10 @@ void main(void)
 	initPDR();
 	initBuzzer();
 	init_TIMER();
+	init_TPU8();
 	LCD_init();
 	// do something
-	music();
+	game();
 	// end
 	keepGate();
 }

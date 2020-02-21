@@ -31,10 +31,18 @@
       <Category Name="tool">
         <Path>tool.c</Path>
         <Path>Timer_control_TPU2.c</Path>
+        <Path>Timer_control_TPU8.c</Path>
       </Category>
       <Category Name="ex">
         <Path>music.c</Path>
         <Path>clock.c</Path>
+      </Category>
+      <Category Name="game">
+        <Path>game.c</Path>
+        <Path>block.c</Path>
+        <Path>ship.c</Path>
+        <Path>bulette.c</Path>
+        <Path>score.c</Path>
       </Category>
     </Files>
     <DebugOptions>
@@ -108,6 +116,12 @@
           <Path>DefaultBuild\lcd.obj</Path>
           <Path>DefaultBuild\music.obj</Path>
           <Path>DefaultBuild\clock.obj</Path>
+          <Path>DefaultBuild\game.obj</Path>
+          <Path>DefaultBuild\Timer_control_TPU8.obj</Path>
+          <Path>DefaultBuild\block.obj</Path>
+          <Path>DefaultBuild\ship.obj</Path>
+          <Path>DefaultBuild\bulette.obj</Path>
+          <Path>DefaultBuild\score.obj</Path>
         </LinkOrder>
         <CommonOptions />
       </BuildMode>
