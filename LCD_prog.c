@@ -23,7 +23,7 @@ void main(void)
 	init_TIMER();
 	LCD_init();
 	// do something
-	clock();
+	music();
 	// end
 	keepGate();
 }

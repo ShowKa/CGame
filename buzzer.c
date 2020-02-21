@@ -49,7 +49,7 @@ void initBuzzer2(void) {
 	SYSTEM.PRCR.WORD = 0xA503;
 	SYSTEM.MSTPCRA.BIT.MSTPA13 = 0;
 	SYSTEM.PRCR.WORD = 0xA500;
-	//TPU9の動作設定
+	//TPU5の動作設定
 	TPU5.TCR.BIT.TPSC = 3; //3 => PCLK/64
 	TPU5.TCR.BIT.CKEG = 1;
 	TPU5.TCR.BIT.CCLR = 1; //TGRAコンペアマッチ設定
