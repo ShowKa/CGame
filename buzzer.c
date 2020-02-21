@@ -81,8 +81,7 @@ double getLength(int length) {
 static double count = 832.0; // TPSC=6=/256 => 208.0
 static double freq = 440.0;
 static const double diff = 1.059463;
-static const double diff_7 = 1.498306;
-static const double diff_12 = 2.0;
+static const double diff_7 = 1.50000;
 void upDownFreq(int upDown) {
 	int i, absolue = upDown > 0 ? upDown : (-1 * upDown),
 		sign = upDown > 0 ? 1 : 0;
@@ -116,7 +115,7 @@ void sound(int upDown, int length) {
 
 void sound7(int upDown, int length);
 void sound7(int upDown, int length) {
-	double before = freq, after, ratio, span;
+	double before = freq, after, ratio, span, other;
 	upDownFreq(upDown);
 	after = freq;
 	ratio = after / before;
@@ -129,7 +128,8 @@ void sound7(int upDown, int length) {
 	// ”¼‰¹7‰º‚°‚é
 	TPUA.TSTR.BIT.CST5 = 0;
 	TPU5.TCNT = 0;
-	TPU5.TGRA = (int) (count / diff_7);
+	other = count / diff_7;
+	TPU5.TGRA = (int) other;
 	TPUA.TSTR.BIT.CST5 = 1;
 	// length
 	span = getLength(length);

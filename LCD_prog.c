@@ -17,9 +17,6 @@
 void main(void);
 void main(void)
 {
-	int i;
-	char a = 0x41;
-	char m[] = "ABCDE";
 	// setup
 	initPDR();
 	initBuzzer();
