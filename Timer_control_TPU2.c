@@ -7,6 +7,7 @@ void init_TIMER(void)
                         // クロック発生回路関連：許可、動作モード等：許可
 	
 	//TPU機能の消費電力低減機能解除
+	// mstp = module stop
 	SYSTEM.MSTPCRA.BIT.MSTPA13 = 0;	// TPUユニット0(TPU0 - 5)
 						
 	//プロテクトの設定

@@ -22,6 +22,7 @@ void main(void)
 	initBuzzer();
 	init_TIMER();
 	init_TPU8();
+	init_TPU9();
 	LCD_init();
 	// do something
 	game();

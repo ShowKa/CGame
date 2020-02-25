@@ -1,9 +1,10 @@
+#include "iodefine.h"
+
 void wait(long int time);
 void waitUntil(char *switchAdress, char condition);
 void waitBreakable(long int time, char *switchAdress, char condition);
 void keepGate();
-int seg7_ic(int number);
-int seg7_ic_reverse(char seg);
+unsigned int random (int max);
 
 void wait(long int time) {
 	long int i;
@@ -30,4 +31,9 @@ void waitBreakable(long int time, char *switchAdress, char condition) {
 
 void keepGate() {
 	while(1);
+}
+
+unsigned int random (int num) {
+	int count = TPU9.TCNT;
+	return count % num;
 }

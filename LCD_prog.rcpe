@@ -32,6 +32,7 @@
         <Path>tool.c</Path>
         <Path>Timer_control_TPU2.c</Path>
         <Path>Timer_control_TPU8.c</Path>
+        <Path>random_TPU9.c</Path>
       </Category>
       <Category Name="ex">
         <Path>music.c</Path>
@@ -122,6 +123,7 @@
           <Path>DefaultBuild\ship.obj</Path>
           <Path>DefaultBuild\bulette.obj</Path>
           <Path>DefaultBuild\score.obj</Path>
+          <Path>DefaultBuild\random_TPU9.obj</Path>
         </LinkOrder>
         <CommonOptions />
       </BuildMode>
