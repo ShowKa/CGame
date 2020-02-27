@@ -10,3 +10,13 @@ void moveUpShip() {
 	all[cur][0] = getEmpty();
 	all[next][0] = SHIP;
 }
+
+char isShip(char target);
+char isShip(char target) {
+	return target == SHIP;
+}
+
+char existShipAt(int r, int c);
+char existShipAt(int r, int c) {
+	return isShip(all[r][c]);
+}

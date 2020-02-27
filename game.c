@@ -26,3 +26,13 @@ void game(void) {
 		wait_TPU8();
 	}
 }
+
+void endGame();
+void endGame() {
+	char message[] = "GAME OVER !!";
+	LCD_clear();
+	LCD_locate(1,2);
+	LCD_putstr(&message);
+	delay_s(5);
+	game();
+}

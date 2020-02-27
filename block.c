@@ -27,7 +27,12 @@ void moveBlock() {
 		for (c = 0; c < 20; c++) {
 			char target = row[c];
 			if (isBlock(target)) {
-				// move left
+				// check ship
+				if (existShipAt(r, c-1)) {
+					endGame();
+					return;
+				}
+								// move left
 				if (c > 0) {
 					all[r][c-1] = BLOCK;
 				}

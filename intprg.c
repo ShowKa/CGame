@@ -162,6 +162,7 @@ void Excep_ICU_IRQ0(void){
 // ICU IRQ1
 void Excep_ICU_IRQ1(void){
 	moveUpShip();
+	displayLines();
 }
 
 // ICU IRQ2
