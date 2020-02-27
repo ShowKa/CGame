@@ -14,6 +14,10 @@
 //_SINT ios_base::Init::init_cnt;       // Remove the comment when you use ios
 #endif
 
+#include "iodefine.h"
+#include <machine.h>
+#include "vect.h"
+
 void main(void);
 void main(void)
 {
@@ -24,8 +28,15 @@ void main(void)
 	init_TPU8();
 	init_TPU9();
 	LCD_init();
+	// 割り込み
+	initIRQ();
+	// 割り込み許可
+	// psw:ProsessorStatusWord
+	// 割り込み許可ビット(Iビット）を設定
+	// このレジスタは専用関数が必要。
+	setpsw_i();
 	// do something
-	irq_01();
+	irq_03();
 	// end
 	keepGate();
 }

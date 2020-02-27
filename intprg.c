@@ -153,15 +153,15 @@ void Excep_CAN2_TXM2(void){ }
 // RTC CUP
 void Excep_RTC_CUP(void){ }
 
+#include	"iodefine.h"
 // ICU IRQ0
-extern int Count_Irq0;
-void Excep_ICU_IRQ0(void){ 
-	Count_Irq0++;
+void Excep_ICU_IRQ0(void){
+	countFrom9();
 }
 
 // ICU IRQ1
 void Excep_ICU_IRQ1(void){
-	Count_Irq0--;
+	countFrom3();
 }
 
 // ICU IRQ2

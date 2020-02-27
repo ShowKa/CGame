@@ -46,7 +46,10 @@
         <Path>score.c</Path>
       </Category>
       <Category Name="irq">
+        <Path>irq.c</Path>
         <Path>irq_01.c</Path>
+        <Path>irq_02_multiple.c</Path>
+        <Path>irq_03_multi_7seg.c</Path>
       </Category>
     </Files>
     <DebugOptions>
@@ -128,6 +131,9 @@
           <Path>DefaultBuild\score.obj</Path>
           <Path>DefaultBuild\random_TPU9.obj</Path>
           <Path>DefaultBuild\irq_01.obj</Path>
+          <Path>DefaultBuild\irq_02_multiple.obj</Path>
+          <Path>DefaultBuild\irq.obj</Path>
+          <Path>DefaultBuild\irq_03_multi_7seg.obj</Path>
         </LinkOrder>
         <CommonOptions />
       </BuildMode>
