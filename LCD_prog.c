@@ -25,7 +25,7 @@ void main(void)
 	init_TPU9();
 	LCD_init();
 	// do something
-	irq_01();
+	game();
 	// end
 	keepGate();
 }
