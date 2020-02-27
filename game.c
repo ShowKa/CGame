@@ -11,6 +11,7 @@ void game(void) {
 		// ---
 		// move block if exists
 		// ---
+		moveBlock();
 		// ---
 		// add block
 		// ---

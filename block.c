@@ -1,5 +1,7 @@
 extern char *all[4];
 
+char BLOCK = 0xff;
+
 int decideRow(void);
 int decideRow(void) {
 	int a = random(12);
@@ -10,5 +12,28 @@ int decideRow(void) {
 }
 
 void addBlock(int row) {
-	all[row][19] = 0xff;
+	all[row][19] = BLOCK;
+}
+
+char isBlock(char target);
+char isBlock(char target) {
+	return target == BLOCK;
+}
+
+void moveBlock() {
+	int r, c;
+	for (r = 0; r < 4; r++) {
+		char *row = all[r];
+		for (c = 0; c < 20; c++) {
+			char target = row[c];
+			if (isBlock(target)) {
+				// move left
+				if (c > 0) {
+					all[r][c-1] = BLOCK;
+				}
+				// del if exists
+				all[r][c] = getEmpty();
+			}
+		}
+	}
 }
