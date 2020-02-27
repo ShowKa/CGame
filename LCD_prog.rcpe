@@ -45,6 +45,9 @@
         <Path>bulette.c</Path>
         <Path>score.c</Path>
       </Category>
+      <Category Name="irq">
+        <Path>irq_01.c</Path>
+      </Category>
     </Files>
     <DebugOptions>
       <ConnectSettings>
@@ -124,6 +127,7 @@
           <Path>DefaultBuild\bulette.obj</Path>
           <Path>DefaultBuild\score.obj</Path>
           <Path>DefaultBuild\random_TPU9.obj</Path>
+          <Path>DefaultBuild\irq_01.obj</Path>
         </LinkOrder>
         <CommonOptions />
       </BuildMode>

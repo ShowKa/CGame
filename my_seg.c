@@ -1,8 +1,8 @@
 #include	"iodefine.h"
 
-// portD ©ìŠî”Õ‚Ì7seg
-#define   SEG02_IO PORTD.PDR.BYTE
-#define   SEG02 PORTD.PODR.BYTE
+// portC ©ìŠî”Õ‚Ì7seg
+#define   SEG02_IO PORTC.PDR.BYTE
+#define   SEG02 PORTC.PODR.BYTE
 
 void initMySEG();
 void displayMySeg(int number);

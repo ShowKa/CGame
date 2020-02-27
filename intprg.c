@@ -154,10 +154,15 @@ void Excep_CAN2_TXM2(void){ }
 void Excep_RTC_CUP(void){ }
 
 // ICU IRQ0
-void Excep_ICU_IRQ0(void){ }
+extern int Count_Irq0;
+void Excep_ICU_IRQ0(void){ 
+	Count_Irq0++;
+}
 
 // ICU IRQ1
-void Excep_ICU_IRQ1(void){ }
+void Excep_ICU_IRQ1(void){
+	Count_Irq0--;
+}
 
 // ICU IRQ2
 void Excep_ICU_IRQ2(void){ }
