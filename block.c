@@ -1,6 +1,6 @@
 extern char *all[4];
 
-char BLOCK = 0xff;
+extern char BLOCK;
 
 int decideRow(void);
 int decideRow(void) {

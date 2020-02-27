@@ -1,7 +1,10 @@
 // global
 char _0[21], _1[21], _2[21], _3[21];
 char *all[4] = {_0, _1, _2, _3};
+
+char BLOCK = 0xff;
 char EMPTY = 0x20;
+char SHIP = 0x2A;
 
 void initLines();
 void initLines() {
@@ -13,6 +16,7 @@ void initLines() {
 		_2[i] = EMPTY;
 		_3[i] = EMPTY;
 	}
+	_1[0] = SHIP;
 }
 
 void displayLines();

@@ -11,8 +11,6 @@ int Count_Irq0;
 
 // IRQ0‚ÌŠ„‚è‚İ‰ñ”‚ğseg‚É•\¦‚·‚é
 void irq_01() {
-	initIRQ();
-	setpsw_i();
 	while(1) {
 		int digi10 = Count_Irq0 / 10;
 		int digi1 = Count_Irq0 % 10;
@@ -55,4 +53,6 @@ void initIRQ() {
 	
 	IEN(ICU, IRQ0) = 1;
 	IEN(ICU, IRQ1) = 1;
+
+	setpsw_i();
 }

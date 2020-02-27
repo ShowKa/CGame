@@ -161,7 +161,7 @@ void Excep_ICU_IRQ0(void){
 
 // ICU IRQ1
 void Excep_ICU_IRQ1(void){
-	Count_Irq0--;
+	moveUpShip();
 }
 
 // ICU IRQ2

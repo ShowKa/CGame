@@ -47,7 +47,7 @@
         <Path>line.c</Path>
       </Category>
       <Category Name="irq">
-        <Path>irq_01.c</Path>
+        <Path>irq.c</Path>
       </Category>
     </Files>
     <DebugOptions>
@@ -128,7 +128,7 @@
           <Path>DefaultBuild\bulette.obj</Path>
           <Path>DefaultBuild\score.obj</Path>
           <Path>DefaultBuild\random_TPU9.obj</Path>
-          <Path>DefaultBuild\irq_01.obj</Path>
+          <Path>DefaultBuild\irq.obj</Path>
           <Path>DefaultBuild\line.obj</Path>
         </LinkOrder>
         <CommonOptions />

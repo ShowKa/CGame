@@ -24,6 +24,8 @@ void main(void)
 	init_TPU8();
 	init_TPU9();
 	LCD_init();
+	// irq
+	initIRQ();
 	// do something
 	game();
 	// end
