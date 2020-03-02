@@ -54,5 +54,4 @@ void initIRQ() {
 	IEN(ICU, IRQ0) = 1;
 	IEN(ICU, IRQ1) = 1;
 
-	setpsw_i();
 }

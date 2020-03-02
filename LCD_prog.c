@@ -9,6 +9,7 @@
 /*                                                                     */
 /***********************************************************************/
 //#include "typedefine.h"
+#include <machine.h>
 #ifdef __cplusplus
 //#include <ios>                        // Remove the comment when you use ios
 //_SINT ios_base::Init::init_cnt;       // Remove the comment when you use ios
@@ -24,8 +25,10 @@ void main(void)
 	init_TPU8();
 	init_TPU9();
 	LCD_init();
-	// irq
+	// interruption
 	initIRQ();
+	init_CMT0();
+	setpsw_i();
 	// do something
 	game();
 	// end

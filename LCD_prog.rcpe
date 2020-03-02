@@ -49,6 +49,9 @@
       <Category Name="irq">
         <Path>irq.c</Path>
       </Category>
+      <Category Name="cmt">
+        <Path>cmt.c</Path>
+      </Category>
     </Files>
     <DebugOptions>
       <ConnectSettings>
@@ -67,9 +70,7 @@
           <Option>-fpu</Option>
           <Option>-lang=c</Option>
           <Option>-output=obj=%BuildModeName%\%FileLeaf%.obj</Option>
-          <Option>-debug</Option>
           <Option>-optimize=0</Option>
-          <Option>-map=%BuildModeName%\1st\%ProjectName%.bls</Option>
           <Option>-nologo</Option>
         </CompileOptions>
         <AssembleOptions>
@@ -103,33 +104,34 @@
           <GenerateMode>BuildOptionChanged</GenerateMode>
         </LibraryGenerateOptions>
         <LinkOrder>
-          <Path>DefaultBuild\dbsct.obj</Path>
-          <Path>DefaultBuild\intprg.obj</Path>
-          <Path>DefaultBuild\LCD_prog.obj</Path>
-          <Path>DefaultBuild\resetprg.obj</Path>
-          <Path>DefaultBuild\sbrk.obj</Path>
-          <Path>DefaultBuild\vecttbl.obj</Path>
-          <Path>DefaultBuild\tool.obj</Path>
-          <Path>DefaultBuild\io_control.obj</Path>
-          <Path>DefaultBuild\led.obj</Path>
-          <Path>DefaultBuild\my_seg.obj</Path>
-          <Path>DefaultBuild\switch.obj</Path>
-          <Path>DefaultBuild\segWithIc.obj</Path>
-          <Path>DefaultBuild\buzzer.obj</Path>
-          <Path>DefaultBuild\hwsetup.obj</Path>
-          <Path>DefaultBuild\Timer_control_TPU2.obj</Path>
-          <Path>DefaultBuild\lcd.obj</Path>
-          <Path>DefaultBuild\music.obj</Path>
-          <Path>DefaultBuild\clock.obj</Path>
-          <Path>DefaultBuild\game.obj</Path>
-          <Path>DefaultBuild\Timer_control_TPU8.obj</Path>
-          <Path>DefaultBuild\block.obj</Path>
-          <Path>DefaultBuild\ship.obj</Path>
-          <Path>DefaultBuild\bulette.obj</Path>
-          <Path>DefaultBuild\score.obj</Path>
-          <Path>DefaultBuild\random_TPU9.obj</Path>
-          <Path>DefaultBuild\irq.obj</Path>
-          <Path>DefaultBuild\line.obj</Path>
+          <Path>DefaultBuild\1st\dbsct.obj</Path>
+          <Path>DefaultBuild\1st\intprg.obj</Path>
+          <Path>DefaultBuild\1st\LCD_prog.obj</Path>
+          <Path>DefaultBuild\1st\resetprg.obj</Path>
+          <Path>DefaultBuild\1st\sbrk.obj</Path>
+          <Path>DefaultBuild\1st\vecttbl.obj</Path>
+          <Path>DefaultBuild\1st\tool.obj</Path>
+          <Path>DefaultBuild\1st\io_control.obj</Path>
+          <Path>DefaultBuild\1st\led.obj</Path>
+          <Path>DefaultBuild\1st\my_seg.obj</Path>
+          <Path>DefaultBuild\1st\switch.obj</Path>
+          <Path>DefaultBuild\1st\segWithIc.obj</Path>
+          <Path>DefaultBuild\1st\buzzer.obj</Path>
+          <Path>DefaultBuild\1st\hwsetup.obj</Path>
+          <Path>DefaultBuild\1st\Timer_control_TPU2.obj</Path>
+          <Path>DefaultBuild\1st\lcd.obj</Path>
+          <Path>DefaultBuild\1st\music.obj</Path>
+          <Path>DefaultBuild\1st\clock.obj</Path>
+          <Path>DefaultBuild\1st\game.obj</Path>
+          <Path>DefaultBuild\1st\Timer_control_TPU8.obj</Path>
+          <Path>DefaultBuild\1st\block.obj</Path>
+          <Path>DefaultBuild\1st\ship.obj</Path>
+          <Path>DefaultBuild\1st\bulette.obj</Path>
+          <Path>DefaultBuild\1st\score.obj</Path>
+          <Path>DefaultBuild\1st\random_TPU9.obj</Path>
+          <Path>DefaultBuild\1st\irq.obj</Path>
+          <Path>DefaultBuild\1st\line.obj</Path>
+          <Path>DefaultBuild\1st\cmt.obj</Path>
         </LinkOrder>
         <CommonOptions />
       </BuildMode>
