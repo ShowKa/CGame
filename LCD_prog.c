@@ -28,7 +28,9 @@ void main(void)
 	init_TPU8();
 	init_TPU9();
 	LCD_init();
-	// 割り込み
+	// CMT割込
+	init_CMT0();
+	// I割込
 	initIRQ();
 	// 割り込み許可
 	// psw:ProsessorStatusWord
@@ -36,7 +38,7 @@ void main(void)
 	// このレジスタは専用関数が必要。
 	setpsw_i();
 	// do something
-	irq_03();
+	while(1);
 	// end
 	keepGate();
 }
