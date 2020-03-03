@@ -156,8 +156,8 @@ void Excep_RTC_CUP(void){ }
 // ICU IRQ0
 void Excep_ICU_IRQ0(void){ 
 	launch();
-	setBulettesIntoLine();
-	displayLines();
+	//setBulettesIntoLine();
+	//displayLines();
 }
 
 // ICU IRQ1

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "bulette.h"
+#include "ship.h"
 typedef struct bulette bulette;
 
 // global
@@ -8,7 +9,6 @@ char *all[4] = {_0, _1, _2, _3};
 
 char BLOCK = 0xff;
 char EMPTY = 0x20;
-char SHIP = 0x2A;
 
 extern bulette buletteDummy;
 extern bulette *bulettes;
@@ -27,7 +27,7 @@ void initLines() {
 		_2[i] = EMPTY;
 		_3[i] = EMPTY;
 	}
-	_1[0] = SHIP;
+	_1[0] = getShipSymbol();
 }
 
 void displayLines() {
