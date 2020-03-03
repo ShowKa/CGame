@@ -11,14 +11,7 @@
 
 //*** CMT0 äÑçûÇ›èàóù *****
 void Excep_CMT0_CMI0(void){ 
-	if(PORTA.PODR.BYTE == 0xFF)
-	{
-		PORTA.PODR.BYTE = 0x00;
-	}
-	else
-	{
-		PORTA.PODR.BYTE = 0xFF;
-	}
+
 }
 
 void init_CMT0(void)

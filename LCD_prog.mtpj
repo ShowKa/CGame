@@ -239,6 +239,13 @@
       <TreeImageGuid>941832c1-fc3b-4e1b-94e8-01ea17128b42</TreeImageGuid>
       <ParentItem>f0ece445-0229-456e-b318-09367fd234f0</ParentItem>
     </Instance>
+    <Instance Guid="7c7fe608-2deb-477a-9b77-3c214c02df5f">
+      <Name>bulette.h</Name>
+      <Type>File</Type>
+      <RelativePath>bulette.h</RelativePath>
+      <TreeImageGuid>03cad1e8-2eb3-4cde-a8a3-982423631122</TreeImageGuid>
+      <ParentItem>f0ece445-0229-456e-b318-09367fd234f0</ParentItem>
+    </Instance>
     <Instance Guid="740d7cb2-2228-4ab9-af2c-b7ae10187b45">
       <Name>bulette.c</Name>
       <Type>File</Type>
@@ -635,7 +642,7 @@
       <COptionFloatOrder-DefaultValue>False</COptionFloatOrder-DefaultValue>
       <COptionIncode-DefaultValue>Sjis</COptionIncode-DefaultValue>
       <IsLockedByUser>False</IsLockedByUser>
-      <TimeTagModified--0>-8586197064908348960</TimeTagModified--0>
+      <TimeTagModified--0>-8586184063011982670</TimeTagModified--0>
       <COptionLangC-0>C</COptionLangC-0>
       <COptionListfile-0>False</COptionListfile-0>
       <COptionLogo-0>False</COptionLogo-0>
@@ -654,7 +661,8 @@
       <COptionXcref-0>False</COptionXcref-0>
       <COptionControlFlowIntegrity-0>None</COptionControlFlowIntegrity-0>
       <COptionDebug-0>True</COptionDebug-0>
-      <COptionInclude-0 />
+      <COptionInclude-0>.
+</COptionInclude-0>
       <COptionMisra2004RuleFile-0 />
       <COptionPreCompileCommands-0 />
       <COptionShowConditionals-0>False</COptionShowConditionals-0>
@@ -869,7 +877,7 @@ D_2=R_2
       <LinkOptionCommandLine-DefaultValue />
       <LinkOptionSplitVect-DefaultValue>False</LinkOptionSplitVect-DefaultValue>
       <IsLockedByUser>False</IsLockedByUser>
-      <TimeTagModified--0>-8586193439513282011</TimeTagModified--0>
+      <TimeTagModified--0>-8586184012716053069</TimeTagModified--0>
       <LinkOptionCpu-0>False</LinkOptionCpu-0>
       <LinkOptionForm-0>Absolute</LinkOptionForm-0>
       <LinkOptionFormConvert-0>Stype</LinkOptionFormConvert-0>
@@ -1164,7 +1172,7 @@ D_2=R_2
       <LbgOptionFpu-DefaultValue>Fpu</LbgOptionFpu-DefaultValue>
       <LbgOptionFloatOrder-DefaultValue>False</LbgOptionFloatOrder-DefaultValue>
       <IsLockedByUser>False</IsLockedByUser>
-      <TimeTagModified--0>-8586196050570431695</TimeTagModified--0>
+      <TimeTagModified--0>-8586184012716053069</TimeTagModified--0>
       <LbgOptionLanguage-0>C</LbgOptionLanguage-0>
       <LbgOptionLibraryMode-0>MakeOptionChanged</LbgOptionLibraryMode-0>
       <LbgOptionLogo-0>False</LbgOptionLogo-0>
@@ -1472,6 +1480,10 @@ D_2=R_2
       <ItemAddTime>637187413327958444</ItemAddTime>
       <ItemAddTimeCount>0</ItemAddTimeCount>
     </Instance>
+    <Instance Guid="7c7fe608-2deb-477a-9b77-3c214c02df5f">
+      <ItemAddTime>637188297843418056</ItemAddTime>
+      <ItemAddTimeCount>0</ItemAddTimeCount>
+    </Instance>
     <Instance Guid="a7be515f-f007-45ed-9059-4e1500c0f74d">
       <TimeTagModified-SourceItem0--0>-8586195216608690623</TimeTagModified-SourceItem0--0>
       <SourceItem0-IsLockedByUser>False</SourceItem0-IsLockedByUser>
@@ -1573,7 +1585,7 @@ D_2=R_2
       <SourceItem24-IsLockedByUser>False</SourceItem24-IsLockedByUser>
       <SourceItem24-BuildingTarget-0>True</SourceItem24-BuildingTarget-0>
       <SourceItem24-IndividualCompileOption-0>False</SourceItem24-IndividualCompileOption-0>
-      <TimeTagModified-SourceItem25--0>-8586188364160738016</TimeTagModified-SourceItem25--0>
+      <TimeTagModified-SourceItem25--0>-8586184012716053069</TimeTagModified-SourceItem25--0>
       <SourceItem25-IsLockedByUser>False</SourceItem25-IsLockedByUser>
       <SourceItem25-BuildingTarget-0>True</SourceItem25-BuildingTarget-0>
       <SourceItem25-IndividualCompileOption-0>False</SourceItem25-IndividualCompileOption-0>

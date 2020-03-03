@@ -4,6 +4,7 @@ void game(void);
 void game(void) {
 	unsigned long int time;
 	initLines();
+	initBulette();
 	for (time = 0; time < 120; time++) {
 		int r;
 		// stat

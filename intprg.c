@@ -154,9 +154,10 @@ void Excep_CAN2_TXM2(void){ }
 void Excep_RTC_CUP(void){ }
 
 // ICU IRQ0
-extern int Count_Irq0;
 void Excep_ICU_IRQ0(void){ 
-	Count_Irq0++;
+	launch();
+	setBulettesIntoLine();
+	displayLines();
 }
 
 // ICU IRQ1
