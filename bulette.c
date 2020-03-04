@@ -1,17 +1,22 @@
 #include <stdio.h>
 #include "bulette.h"
+typedef struct Bulette Bulette;
 
-typedef struct bulette bulette;
+const char BULETTE = 0x7d;
+Bulette buletteDummy = {0};
+Bulette *bulettes = &buletteDummy;
 
-bulette buletteDummy = {-1, -1, 0x7d, NULL};
-bulette *bulettes = &buletteDummy;
+Bulette *getBulettes() {
+	return bulettes;
+}
 
-bulette generateBulette(int r, int c) {
-	bulette *bp = (bulette *)malloc(sizeof(bulette));
-	bulette *wp = bulettes;
+Bulette generateBulette(int r, int c) {
+	Bulette *bp = (Bulette *)malloc(sizeof(Bulette));
+	Bulette *wp = bulettes;
 	(*bp).row = r;
 	(*bp).column = c;
 	(*bp).symbol = 0x7d;
+	(*bp).isDummy = 0;
 	(*bp).next = &buletteDummy;
 	if (wp->next == NULL) {
 		bulettes = bp;
@@ -28,5 +33,30 @@ bulette generateBulette(int r, int c) {
 }
 
 void initBulette() {
+	buletteDummy.row = -1;
+	buletteDummy.column = -1;
+	buletteDummy.symbol = BULETTE;
+	buletteDummy.isDummy = 1;
+	buletteDummy.next = NULL;
 	bulettes = &buletteDummy;
+}
+
+void moveBulettes() {
+	Bulette *wp = bulettes;
+	while(!wp->isDummy) {
+		(*wp).column += 1;
+		wp = wp->next;
+	}
+	//removeDisappearedBulettes();
+}
+
+void removeDisappearedBulettes() {
+	Bulette *wp = bulettes;
+	while(!wp->isDummy) {
+		Bulette current = *wp;
+		//Bulette next = *current.next;
+		if (current.column > 19) {
+		}
+		wp = current.next;
+	}
 }

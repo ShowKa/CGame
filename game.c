@@ -14,6 +14,10 @@ void game(void) {
 		// stat
 		start_TPU8();
 		// ---
+		// move bulette
+		// ---
+		moveBulettes();
+		// ---
 		// move block
 		// ---
 		moveBlocks();
@@ -31,6 +35,7 @@ void game(void) {
 		alive = isShipAlive();
 		if (!alive) {
 			endGame();
+			return;
 		}
 		// display result
 		displayLines();

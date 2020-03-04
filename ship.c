@@ -1,6 +1,6 @@
 #include "ship.h"
 #include "bulette.h"
-typedef struct bulette bulette;
+typedef struct Bulette Bulette;
 typedef struct Ship Ship;
 
 extern char *all[4];
@@ -34,7 +34,7 @@ int getRowOfShip() {
 
 void launch() {
 	int r = getRowOfShip();
-	bulette b = generateBulette(r, 1);
+	Bulette b = generateBulette(r, 1);
 }
 
 char getShipSymbol() {

@@ -1,12 +1,13 @@
-struct bulette {
+struct Bulette {
 	int row;
 	int column;
 	char symbol;
-	struct bulette *next;
+	char isDummy;
+	struct Bulette *next;
 };
 
-extern struct bulette buletteDummy;
-extern struct bulette *bulettes;
-
-struct bulette generateBulette(int r, int c);
+struct Bulette *getBulettes();
+struct Bulette generateBulette(int r, int c);
 void initBulette();
+void moveBulettes();
+void removeDisappearedBulettes();

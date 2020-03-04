@@ -3,7 +3,7 @@
 #include "ship.h"
 #include "block.h"
 
-typedef struct bulette bulette;
+typedef struct Bulette Bulette;
 typedef struct Ship Ship;
 typedef struct Block Block;
 
@@ -33,11 +33,9 @@ void displayLines() {
 	int i;
 	Ship ship;
 	Block *blocks;
+	Bulette *bulettes;
 	// init
 	initLines();
-	// ship
-	ship = getShip();
-	all[ship.row][ship.column] = ship.symbol;
 	// block
 	blocks = getBlocks();
 	while (blocks->next != NULL) {
@@ -45,7 +43,17 @@ void displayLines() {
 		all[b.row][b.column] = b.symbol;
 		blocks = blocks->next;
 	}
-	 // display
+	// bulette
+	bulettes = getBulettes();
+	while (!bulettes->isDummy) {
+		Bulette bul = *bulettes;
+		all[bul.row][bul.column] = bul.symbol;
+		bulettes = bul.next;
+	}
+	// ship
+	ship = getShip();
+	all[ship.row][ship.column] = ship.symbol;
+	// display
 	for (i = 0; i < 4; i++) {
 		LCD_locate(1, i+1);//watch out
 		LCD_putstr(all[i]);
@@ -54,16 +62,6 @@ void displayLines() {
 
 char getEmpty() {
 	return EMPTY;
-}
-
-void setBulettesIntoLine() {
-	struct bulette *work = bulettes;
-	while (work->next != NULL) {
-		int r = work->row;
-		int c = work->column;
-		all[r][c] = work->symbol;
-		work = work->next;
-	}
 }
 
 char isShipAlive() {
