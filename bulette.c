@@ -47,16 +47,35 @@ void moveBulettes() {
 		(*wp).column += 1;
 		wp = wp->next;
 	}
-	//removeDisappearedBulettes();
+	removeDisappearedBulettes();
 }
 
 void removeDisappearedBulettes() {
 	Bulette *wp = bulettes;
+	Bulette *prev_p = bulettes;
 	while(!wp->isDummy) {
-		Bulette current = *wp;
-		//Bulette next = *current.next;
-		if (current.column > 19) {
+		char removed = 0;
+		Bulette *current_p = wp;
+		Bulette *next_p = current_p->next;
+		// 現要素がディスプレイ表示領域の外に出た場合、当該要素削除
+		if (current_p->column > 19) {
+			// まだリスト先頭にいる場合、次の要素をリストの先頭にする
+			if (current_p == prev_p) {
+				bulettes = next_p;
+			// リスト先頭ではない場合、前と次を連結する。
+			} else {
+				prev_p->next = current_p->next;
+			}
+			removed = 1;
 		}
-		wp = current.next;
+		// increment
+		wp = current_p->next;
+		// free memory
+		if (removed) {
+			// prev_p = prev_p;
+			free(current_p);
+		} else {
+			prev_p = current_p;
+		}
 	}
 }

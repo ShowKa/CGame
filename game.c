@@ -42,6 +42,8 @@ void game(void) {
 		// wait
 		wait_TPU8();
 	}
+	// time over
+	endGame();
 }
 
 void endGame() {
