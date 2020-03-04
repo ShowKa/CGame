@@ -65,3 +65,22 @@ void setBulettesIntoLine() {
 		work = work->next;
 	}
 }
+
+char isShipAlive() {
+	Ship ship;
+	Block *blocks;
+	Block b;
+	// ship
+	ship = getShip();
+	// block
+	blocks = getBlocks();
+	b = *blocks;
+	while (!b.isDummy) {
+		// dead
+		if (ship.row == b.row && ship.column == b.column) {
+			return 0;
+		}
+		b = *b.next;
+	}
+	return 1;
+}

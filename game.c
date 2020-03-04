@@ -1,17 +1,20 @@
 #include "iodefine.h"
 
 void game(void);
+void endGame();
+
 void game(void) {
 	unsigned long int time;
 	initLines();
 	initBulette();
 	initBlocks();
 	for (time = 0; time < 120; time++) {
+		char alive;
 		int r;
 		// stat
 		start_TPU8();
 		// ---
-		// move block if exists
+		// move block
 		// ---
 		moveBlocks();
 		// ---
@@ -22,6 +25,13 @@ void game(void) {
 		if (r != -1) {
 			generateBlock(r);
 		}
+		// ---
+		// check alive
+		// ---
+		alive = isShipAlive();
+		if (!alive) {
+			endGame();
+		}
 		// display result
 		displayLines();
 		// wait
@@ -29,7 +39,6 @@ void game(void) {
 	}
 }
 
-void endGame();
 void endGame() {
 	char message[] = "GAME OVER !!";
 	LCD_clear();
