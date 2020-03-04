@@ -1,21 +1,18 @@
 #include "ship.h"
 #include "bulette.h"
 typedef struct bulette bulette;
-typedef struct ship ship;
+typedef struct Ship Ship;
 
 extern char *all[4];
 
-static const ship theShip = {1, 0x2A};
+static Ship theShip = {1, 0, 0x2A};
 
 void moveUpShip() {
 	static int movingTo = 1;
 	int cur, next;
-	for (cur = 0; cur < 4; cur++) {
-		if (all[cur][0] == theShip.symbol) break;
-	}
+	cur = theShip.row;
 	next = cur + movingTo;
-	all[cur][0] = getEmpty();
-	all[next][0] = theShip.symbol;
+	theShip.row = next;
 	movingTo = (next == 0 || next == 3) ? (movingTo * -1) : movingTo;
 }
 
@@ -42,4 +39,8 @@ void launch() {
 
 char getShipSymbol() {
 	return theShip.symbol;
+}
+
+Ship getShip() {
+	return theShip;
 }

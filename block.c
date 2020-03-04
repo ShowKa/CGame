@@ -1,9 +1,44 @@
-extern char *all[4];
+#include <stdio.h>
+#include "block.h"
+typedef struct Block Block;
 
-extern char BLOCK;
+const char BLOCK = 0xff;
+Block *blocks;
+Block blockDummy= {0};
 
-int decideRow(void);
-int decideRow(void) {
+void initBlocks() {
+	blockDummy.row = -1;
+	blockDummy.column = -1;
+	blockDummy.symbol = BLOCK;
+	blockDummy.velocity = 0;
+	blockDummy.next = NULL;
+	blockDummy.isDummy= 1;
+	blocks = &blockDummy;
+}
+
+Block generateBlock(int row) {
+	Block *new_bp = (Block *)malloc(sizeof(Block));
+	Block *wp = blocks;
+	(*new_bp).row = row;
+	(*new_bp).column = 19;
+	(*new_bp).symbol = 0xff;
+	(*new_bp).next = &blockDummy;
+	(*new_bp).isDummy = 0;
+	if (wp->next == NULL) {
+		blocks = new_bp;
+		return *new_bp;
+	}
+	while(wp->next) {
+		if(wp->next->next == NULL) {
+			wp->next = new_bp;
+			break;
+		}
+		wp = wp->next;
+	}
+	return *new_bp;
+}
+
+int decideRow() {
 	int a = random(12);
 	if (a >= 4) {
 		a = -1;
@@ -11,34 +46,34 @@ int decideRow(void) {
 	return a;
 }
 
-void addBlock(int row) {
-	all[row][19] = BLOCK;
-}
-
-char isBlock(char target);
 char isBlock(char target) {
 	return target == BLOCK;
 }
 
-void moveBlock() {
-	int r, c;
-	for (r = 0; r < 4; r++) {
-		char *row = all[r];
-		for (c = 0; c < 20; c++) {
-			char target = row[c];
-			if (isBlock(target)) {
-				// check ship
-				if (existShipAt(r, c-1)) {
-					endGame();
-					return;
-				}
-								// move left
-				if (c > 0) {
-					all[r][c-1] = BLOCK;
-				}
-				// del if exists
-				all[r][c] = getEmpty();
-			}
+void moveBlocks() {
+	Block *wp = blocks;
+	while (wp->next != NULL) {
+		(*wp).column -= 1;
+		wp = wp->next;
+	}
+	removeDisappearedBlocks();
+}
+
+Block *getBlocks() {
+	return blocks;
+}
+
+void removeDisappearedBlocks() {
+	Block *wp = blocks;
+	while (!wp->isDummy) {
+		Block current_b = *wp;
+		// remove
+		if (current_b.column < 0) {
+			blocks = current_b.next;
+			wp = current_b.next;
+			free(&current_b);
+		} else {
+			break;
 		}
 	}
 }

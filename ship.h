@@ -1,5 +1,6 @@
-struct ship {
+struct Ship {
 	int row;
+	int column;
 	int symbol;
 };
 
@@ -9,3 +10,4 @@ char isShip(char target);
 int getRowOfShip();
 void launch();
 char getShipSymbol();
+struct Ship getShip();

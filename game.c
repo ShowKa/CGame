@@ -5,6 +5,7 @@ void game(void) {
 	unsigned long int time;
 	initLines();
 	initBulette();
+	initBlocks();
 	for (time = 0; time < 120; time++) {
 		int r;
 		// stat
@@ -12,14 +13,14 @@ void game(void) {
 		// ---
 		// move block if exists
 		// ---
-		moveBlock();
+		moveBlocks();
 		// ---
 		// add block
 		// ---
 		// which row?
 		r = decideRow();
 		if (r != -1) {
-			addBlock(r);
+			generateBlock(r);
 		}
 		// display result
 		displayLines();
