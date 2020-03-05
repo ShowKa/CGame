@@ -38,6 +38,11 @@ void stop_TIMER(void)
 {
 	TPUA.TSTR.BIT.CST2 = 0;
 }
+
+unsigned char isStart_TIMER(void) {
+	return TPUA.TSTR.BIT.CST2;
+}
+
 void delay_s(unsigned short s)
 {
 	int i;
