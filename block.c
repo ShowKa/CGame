@@ -65,15 +65,30 @@ Block *getBlocks() {
 
 void removeDisappearedBlocks() {
 	Block *wp = blocks;
+	Block *prev_p = blocks;
 	while (!wp->isDummy) {
-		Block current_b = *wp;
-		// remove
-		if (current_b.column < 0) {
-			blocks = current_b.next;
-			wp = current_b.next;
-			free(&current_b);
+		char removed = 0;
+		Block *current_p = wp;
+		Block *next_p = wp->next;
+		// 現要素がディスプレイ表示領域の外に出た場合、当該要素削除
+		if (current_p->column < 0) {
+			// まだリスト先頭にいる場合、次の要素をリストの先頭にする
+			if (current_p == prev_p) {
+				blocks = next_p;
+			// リスト先頭ではない場合、前と次を連結する。
+			} else {
+				prev_p->next = current_p->next;
+			}
+			removed = 1;
+		}
+		// increment
+		wp = current_p->next;
+		// free memory
+		if (removed) {
+			// prev_p = prev_p;
+			free(current_p);
 		} else {
-			break;
+			prev_p = current_p;
 		}
 	}
 }
