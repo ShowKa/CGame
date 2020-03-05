@@ -154,24 +154,10 @@ void Excep_CAN2_TXM2(void){ }
 void Excep_RTC_CUP(void){ }
 
 // ICU IRQ0
-void Excep_ICU_IRQ0(void){
-	char timeIsStart = isStart_TIMER();
-	launch();
-	displayLines();
-	if (timeIsStart) {
-		start_TIMER();
-	}
-}
+// void Excep_ICU_IRQ0(void){ }
 
 // ICU IRQ1
-void Excep_ICU_IRQ1(void){
-	char timeIsStart = isStart_TIMER();
-	moveUpShip();
-	displayLines();
-	if (timeIsStart) {
-		start_TIMER();
-	}
-}
+//void Excep_ICU_IRQ1(void){ }
 
 // ICU IRQ2
 void Excep_ICU_IRQ2(void){ }

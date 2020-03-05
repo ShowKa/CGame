@@ -84,18 +84,21 @@ char breakBlockByBulette() {
 	Bulette *bulettes = getBulettes();
 	Block *blocks = getBlocks();
 	while (!bulettes->isDummy) {
+		Bulette *next_bulettes = bulettes->next;
 		while (!blocks->isDummy) {
 			char sameRow = (blocks->row == bulettes->row);
 			char sameColumn = (blocks->column == bulettes->column);
 			// Õ“Ë‚µ‚½‚Ì‚ÅƒuƒƒbƒN‚Æ’e‚ðœ‹Ž
 			if (sameRow && sameColumn) {
-				breakBlock(blocks->row, blocks->column);
-				breakBulettes(bulettes->row, bulettes->column);
+				breakBlock(blocks);
+				breakBulettes(bulettes);
 				broken = 1;
+				break;
 			}
 			blocks = blocks->next;
 		}
-		bulettes = bulettes->next;
+		blocks = getBlocks();
+		bulettes = next_bulettes;
 	}
 	return broken;
 }

@@ -1,7 +1,9 @@
 #include "iodefine.h"
+#include "vect.h"
 
 void game(void);
 void endGame();
+void checkBrokenBlock();
 
 void game(void) {
 	unsigned long int time;
@@ -9,7 +11,7 @@ void game(void) {
 	initBulette();
 	initBlocks();
 	for (time = 0; time < 120; time++) {
-		char alive, broken;
+		char alive;
 		int r;
 		// stat
 		start_TPU8();
@@ -17,18 +19,12 @@ void game(void) {
 		// move bulette
 		// ---
 		moveBulettes();
-		broken = breakBlockByBulette();
-		if (broken) {
-			displayLines();
-		}
+		checkBrokenBlock();
 		// ---
 		// move block
 		// ---
 		moveBlocks();
-		broken = breakBlockByBulette();
-		if (broken) {
-			displayLines();
-		}
+		checkBrokenBlock();
 		// ---
 		// generate block
 		// ---
@@ -60,4 +56,32 @@ void endGame() {
 	LCD_putstr(&message);
 	delay_s(5);
 	game();
+}
+
+// ICU IRQ0
+void Excep_ICU_IRQ0(void){
+	char timeIsStart = isStart_TIMER();
+	launch();
+	displayLines();
+	checkBrokenBlock();
+	if (timeIsStart) {
+		start_TIMER();
+	}
+}
+
+// ICU IRQ1
+void Excep_ICU_IRQ1(void){
+	char timeIsStart = isStart_TIMER();
+	moveUpShip();
+	displayLines();
+	if (timeIsStart) {
+		start_TIMER();
+	}
+}
+
+void checkBrokenBlock() {
+	char broken = breakBlockByBulette();
+	if (broken) {
+		displayLines();
+	}
 }

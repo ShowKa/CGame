@@ -93,14 +93,7 @@ void removeDisappearedBlocks() {
 	}
 }
 
-void breakBlock(int row, int column) {
-	Block *wp = blocks;
-	while (wp->next != NULL) {
-		if (wp->row == row && wp->column == column) {
-			(*wp).column = -1;
-			break;
-		}
-		wp = wp->next;
-	}
+void breakBlock(Block *block) {
+	block->column = -1;
 	removeDisappearedBlocks();
 }
