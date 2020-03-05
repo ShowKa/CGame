@@ -13,10 +13,9 @@ char *all[4] = {_0, _1, _2, _3};
 
 char EMPTY = 0x20;
 
-void setBulettesIntoLine();
 void displayLines();
-char getEmpty();
 void initLines();
+char isShipAlive();
 
 void initLines() {
 	int i;
@@ -58,10 +57,6 @@ void displayLines() {
 		LCD_locate(1, i+1);//watch out
 		LCD_putstr(all[i]);
 	}
-}
-
-char getEmpty() {
-	return EMPTY;
 }
 
 char isShipAlive() {
