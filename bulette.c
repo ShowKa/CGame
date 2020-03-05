@@ -79,3 +79,15 @@ void removeDisappearedBulettes() {
 		}
 	}
 }
+
+void breakBulettes(int row, int column) {
+	Bulette *wp = bulettes;
+	while(!wp->isDummy) {
+		if (wp->row == row && wp->column == column) {
+			(*wp).column = 20;
+			break;
+		}
+		wp = wp->next;
+	}
+	removeDisappearedBulettes();
+}

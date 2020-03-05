@@ -16,6 +16,7 @@ char EMPTY = 0x20;
 void displayLines();
 void initLines();
 char isShipAlive();
+char breakBlockByBulette();
 
 void initLines() {
 	int i;
@@ -76,4 +77,25 @@ char isShipAlive() {
 		b = *b.next;
 	}
 	return 1;
+}
+
+char breakBlockByBulette() {
+	char broken = 0;
+	Bulette *bulettes = getBulettes();
+	Block *blocks = getBlocks();
+	while (!bulettes->isDummy) {
+		while (!blocks->isDummy) {
+			char sameRow = (blocks->row == bulettes->row);
+			char sameColumn = (blocks->column == bulettes->column);
+			// Õ“Ë‚µ‚½‚Ì‚ÅƒuƒƒbƒN‚Æ’e‚ðœ‹Ž
+			if (sameRow && sameColumn) {
+				breakBlock(blocks->row, blocks->column);
+				breakBulettes(bulettes->row, bulettes->column);
+				broken = 1;
+			}
+			blocks = blocks->next;
+		}
+		bulettes = bulettes->next;
+	}
+	return broken;
 }

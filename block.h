@@ -13,3 +13,4 @@ void moveBlocks();
 struct Block generateBlock(int row);
 struct Block *getBlocks();
 void removeDisappearedBlocks();
+void breakBlock(int row, int column);

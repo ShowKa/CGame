@@ -11,3 +11,4 @@ struct Bulette generateBulette(int r, int c);
 void initBulette();
 void moveBulettes();
 void removeDisappearedBulettes();
+void breakBulettes(int row, int column);

@@ -9,7 +9,7 @@ void game(void) {
 	initBulette();
 	initBlocks();
 	for (time = 0; time < 120; time++) {
-		char alive;
+		char alive, broken;
 		int r;
 		// stat
 		start_TPU8();
@@ -17,14 +17,21 @@ void game(void) {
 		// move bulette
 		// ---
 		moveBulettes();
+		broken = breakBlockByBulette();
+		if (broken) {
+			displayLines();
+		}
 		// ---
 		// move block
 		// ---
 		moveBlocks();
+		broken = breakBlockByBulette();
+		if (broken) {
+			displayLines();
+		}
 		// ---
-		// add block
+		// generate block
 		// ---
-		// which row?
 		r = decideRow();
 		if (r != -1) {
 			generateBlock(r);
