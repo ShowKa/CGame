@@ -54,6 +54,10 @@ void moveBlocks() {
 	Block *wp = blocks;
 	while (wp->next != NULL) {
 		(*wp).column -= 1;
+		// ƒXƒRƒAŒ¸
+		if ((*wp).column == -1) {
+			addPoint(-10);
+		}
 		wp = wp->next;
 	}
 	removeDisappearedBlocks();
