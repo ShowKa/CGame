@@ -84,3 +84,14 @@ void breakBulettes(Bulette *bulette) {
 	bulette->column = 20;
 	removeDisappearedBulettes();
 }
+
+char existBuletteAt(int r, int c) {
+	Bulette *wp = bulettes;
+	while(!wp->isDummy) {
+		if ((*wp).row == r && (*wp).column == c) {
+			return 0x01;
+		}
+		wp = wp->next;
+	}
+	return 0x00;
+}

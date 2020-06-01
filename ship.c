@@ -34,7 +34,10 @@ int getRowOfShip() {
 
 void launch() {
 	int r = getRowOfShip();
-	Bulette b = generateBulette(r, 1);
+	if (existBuletteAt(r, 1)) {
+		return;
+	}
+	generateBulette(r, 1);
 }
 
 char getShipSymbol() {

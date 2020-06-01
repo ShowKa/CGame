@@ -12,3 +12,4 @@ void initBulette();
 void moveBulettes();
 void removeDisappearedBulettes();
 void breakBulettes(struct Bulette *bulette);
+char existBuletteAt(int r, int c);
