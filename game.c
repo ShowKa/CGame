@@ -10,6 +10,7 @@ void game(void) {
 	initLines();
 	initBulette();
 	initBlocks();
+	initScore();
 	for (time = 0; time < 120; time++) {
 		char alive;
 		int r;
@@ -51,9 +52,12 @@ void game(void) {
 
 void endGame() {
 	char message[] = "GAME OVER !!";
+	int p_scoreMessage = getScoreMessage();
 	LCD_clear();
 	LCD_locate(1,2);
 	LCD_putstr(&message);
+	LCD_locate(1,3);
+	LCD_putstr(p_scoreMessage);
 	delay_s(5);
 	game();
 }

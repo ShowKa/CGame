@@ -2,6 +2,7 @@
 #include "bulette.h"
 #include "ship.h"
 #include "block.h"
+#include "score.h"
 
 typedef struct Bulette Bulette;
 typedef struct Ship Ship;
@@ -93,6 +94,8 @@ char breakBlockByBulette() {
 				breakBlock(blocks);
 				breakBulettes(bulettes);
 				broken = 1;
+				// ƒXƒRƒA‰ÁŽZ
+				addPoint(5);
 				break;
 			}
 			blocks = blocks->next;
