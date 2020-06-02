@@ -2,9 +2,9 @@
 #include "bulette.h"
 typedef struct Bulette Bulette;
 
-const char BULETTE = 0x7d;
-Bulette buletteDummy = {0};
-Bulette *bulettes;
+static const char BULETTE = 0x7d;
+static Bulette buletteDummy = {0};
+static Bulette *bulettes;
 
 Bulette *getBulettes() {
 	return bulettes;

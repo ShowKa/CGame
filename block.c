@@ -2,9 +2,9 @@
 #include "block.h"
 typedef struct Block Block;
 
-const char BLOCK = 0xff;
-Block *blocks;
-Block blockDummy= {0};
+static const char BLOCK = 0xff;
+static Block *blocks;
+static Block blockDummy= {0};
 
 void initBlocks() {
 	Block *wp = blocks;

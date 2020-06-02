@@ -9,10 +9,10 @@ typedef struct Ship Ship;
 typedef struct Block Block;
 
 // global
-char _0[21], _1[21], _2[21], _3[21];
+static char _0[21], _1[21], _2[21], _3[21];
 char *all[4] = {_0, _1, _2, _3};
 
-char EMPTY = 0x20;
+static const char EMPTY = 0x20;
 
 void displayLines();
 void initLines();

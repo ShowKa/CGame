@@ -27,7 +27,7 @@ void init_TPU8(void)
 	//TMDR（タイマモードレジスタ）の設定
 	TPU8.TMDR.BIT.MD = 0;	//通常動作設定
 	//TGRAの設定（1秒 = 46874)
-	TPU8.TGRA = 46874 / 3;
+	TPU8.TGRA = 46874 / 5;
 		//TGRAの設定（1秒)
 	//TPU8.TGRA = 6;
 }
