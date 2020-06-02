@@ -3,8 +3,6 @@
 typedef struct Bulette Bulette;
 typedef struct Ship Ship;
 
-extern char *all[4];
-
 static Ship theShip = {1, 0, 0x2A};
 
 void moveUpShip() {
@@ -20,16 +18,8 @@ char isShip(char target) {
 	return target == theShip.symbol;
 }
 
-char existShipAt(int r, int c) {
-	return isShip(all[r][c]);
-}
-
 int getRowOfShip() {
-	int i;
-	for (i = 0; i < 4; i++) {
-		if ( existShipAt(i, 0) ) break;
-	}
-	return i;
+	return theShip.row;
 }
 
 void launch() {

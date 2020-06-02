@@ -17,7 +17,7 @@ void initBlocks() {
 	blockDummy.column = -1;
 	blockDummy.symbol = BLOCK;
 	blockDummy.velocity = 0;
-	blockDummy.next = &blockDummy;
+	blockDummy.next = NULL;
 	blockDummy.isDummy= 1;
 	blocks = &blockDummy;
 }
