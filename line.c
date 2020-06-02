@@ -39,7 +39,7 @@ void displayLines() {
 	initLines();
 	// block
 	blocks = getBlocks();
-	while (blocks->next != NULL) {
+	while (!blocks->isDummy) {
 		Block b = *blocks;
 		all[b.row][b.column] = b.symbol;
 		blocks = blocks->next;

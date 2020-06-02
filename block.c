@@ -7,34 +7,30 @@ Block *blocks;
 Block blockDummy= {0};
 
 void initBlocks() {
+	Block *wp = blocks;
+	while (!wp->isDummy) {
+		Block *backup_p = wp->next;
+		free(wp);
+		wp = backup_p;
+	}
 	blockDummy.row = -1;
 	blockDummy.column = -1;
 	blockDummy.symbol = BLOCK;
 	blockDummy.velocity = 0;
-	blockDummy.next = NULL;
+	blockDummy.next = &blockDummy;
 	blockDummy.isDummy= 1;
 	blocks = &blockDummy;
 }
 
 Block generateBlock(int row) {
 	Block *new_bp = (Block *)malloc(sizeof(Block));
-	Block *wp = blocks;
 	(*new_bp).row = row;
 	(*new_bp).column = 19;
 	(*new_bp).symbol = 0xff;
-	(*new_bp).next = &blockDummy;
+	(*new_bp).velocity = 1;
+	(*new_bp).next = blocks;
 	(*new_bp).isDummy = 0;
-	if (wp->next == NULL) {
-		blocks = new_bp;
-		return *new_bp;
-	}
-	while(wp->next) {
-		if(wp->next->next == NULL) {
-			wp->next = new_bp;
-			break;
-		}
-		wp = wp->next;
-	}
+	blocks = new_bp;
 	return *new_bp;
 }
 
@@ -52,7 +48,7 @@ char isBlock(char target) {
 
 void moveBlocks() {
 	Block *wp = blocks;
-	while (wp->next != NULL) {
+	while (!wp->isDummy) {
 		(*wp).column -= 1;
 		// ÉXÉRÉAå∏
 		if ((*wp).column == -1) {
