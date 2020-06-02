@@ -63,33 +63,44 @@ Block *getBlocks() {
 	return blocks;
 }
 
+void removeFirstBlock() {
+	Block first = *blocks;
+	blocks = first.next;
+	free(&first);
+}
+
+void removeBlockByIndex(int index) {
+	int i = 0;
+	Block *target_p = blocks;
+	Block *prev_p = NULL;
+	if (index < 0) {
+		return;
+	}
+	if (index == 0) {
+		removeFirstBlock();
+		return;
+	}
+	while(i < index) {
+		prev_p = target_p;
+		target_p = target_p->next;
+		i++;
+	}
+	prev_p->next = target_p->next;
+	free(target_p);
+}
+
 void removeDisappearedBlocks() {
 	Block *wp = blocks;
-	Block *prev_p = blocks;
+	int i = 0;
 	while (!wp->isDummy) {
-		char removed = 0;
-		Block *current_p = wp;
-		Block *next_p = wp->next;
-		// 現要素がディスプレイ表示領域の外に出た場合、当該要素削除
-		if (current_p->column < 0) {
-			// まだリスト先頭にいる場合、次の要素をリストの先頭にする
-			if (current_p == prev_p) {
-				blocks = next_p;
-			// リスト先頭ではない場合、前と次を連結する。
-			} else {
-				prev_p->next = current_p->next;
-			}
-			removed = 1;
+		if (wp->column < 0) {
+			wp = wp->next;
+			removeBlockByIndex(i);
+			continue;
+			
 		}
-		// increment
-		wp = current_p->next;
-		// free memory
-		if (removed) {
-			// prev_p = prev_p;
-			free(current_p);
-		} else {
-			prev_p = current_p;
-		}
+		wp = wp->next;
+		i++;
 	}
 }
 
