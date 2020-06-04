@@ -3,6 +3,7 @@ struct Explosion {
 	int column;
 	int age;
 	char symbol;
+	char show;
 	char isDummy;
 	struct Explosion *next;
 };
@@ -10,3 +11,5 @@ struct Explosion {
 void initExplosion();
 struct Explosion generateExplosion(int row, int column);
 struct Explosion *getExplosions();
+void removeDisappearedExplosions();
+void twinkleAllExplosion();
