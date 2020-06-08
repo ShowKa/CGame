@@ -260,6 +260,13 @@
       <TreeImageGuid>941832c1-fc3b-4e1b-94e8-01ea17128b42</TreeImageGuid>
       <ParentItem>f0ece445-0229-456e-b318-09367fd234f0</ParentItem>
     </Instance>
+    <Instance Guid="b622b2d6-2533-4a1e-b039-2cd9ea5c2555">
+      <Name>explosion.c</Name>
+      <Type>File</Type>
+      <RelativePath>explosion.c</RelativePath>
+      <TreeImageGuid>941832c1-fc3b-4e1b-94e8-01ea17128b42</TreeImageGuid>
+      <ParentItem>f0ece445-0229-456e-b318-09367fd234f0</ParentItem>
+    </Instance>
     <Instance Guid="7c7fe608-2deb-477a-9b77-3c214c02df5f">
       <Name>bulette.h</Name>
       <Type>File</Type>
@@ -278,6 +285,13 @@
       <Name>block.h</Name>
       <Type>File</Type>
       <RelativePath>block.h</RelativePath>
+      <TreeImageGuid>03cad1e8-2eb3-4cde-a8a3-982423631122</TreeImageGuid>
+      <ParentItem>f0ece445-0229-456e-b318-09367fd234f0</ParentItem>
+    </Instance>
+    <Instance Guid="23c901b7-cec5-4b19-9846-7a093da4d008">
+      <Name>explosion.h</Name>
+      <Type>File</Type>
+      <RelativePath>explosion.h</RelativePath>
       <TreeImageGuid>03cad1e8-2eb3-4cde-a8a3-982423631122</TreeImageGuid>
       <ParentItem>f0ece445-0229-456e-b318-09367fd234f0</ParentItem>
     </Instance>
@@ -407,7 +421,9 @@
       <SourceItemType26>CSource</SourceItemType26>
       <SourceItemGuid27>c85131f1-71a0-4ef8-a54b-e51ed1cf0c9c</SourceItemGuid27>
       <SourceItemType27>CSource</SourceItemType27>
-      <SourceItemCount>28</SourceItemCount>
+      <SourceItemGuid28>b622b2d6-2533-4a1e-b039-2cd9ea5c2555</SourceItemGuid28>
+      <SourceItemType28>CSource</SourceItemType28>
+      <SourceItemCount>29</SourceItemCount>
       <LastDeviceChangedCounter>0</LastDeviceChangedCounter>
     </Instance>
     <Instance Guid="9e208646-ccba-4100-a676-29b1efe6545f">
@@ -1506,6 +1522,14 @@ D_2=R_2
       <ItemAddTime>637189123556086733</ItemAddTime>
       <ItemAddTimeCount>0</ItemAddTimeCount>
     </Instance>
+    <Instance Guid="b622b2d6-2533-4a1e-b039-2cd9ea5c2555">
+      <ItemAddTime>637267061697856633</ItemAddTime>
+      <ItemAddTimeCount>0</ItemAddTimeCount>
+    </Instance>
+    <Instance Guid="23c901b7-cec5-4b19-9846-7a093da4d008">
+      <ItemAddTime>637267061870952588</ItemAddTime>
+      <ItemAddTimeCount>0</ItemAddTimeCount>
+    </Instance>
     <Instance Guid="a7be515f-f007-45ed-9059-4e1500c0f74d">
       <TimeTagModified-SourceItem0--0>-8586195216608690623</TimeTagModified-SourceItem0--0>
       <SourceItem0-IsLockedByUser>False</SourceItem0-IsLockedByUser>
@@ -1619,6 +1643,10 @@ D_2=R_2
       <SourceItem27-IsLockedByUser>False</SourceItem27-IsLockedByUser>
       <SourceItem27-BuildingTarget-0>True</SourceItem27-BuildingTarget-0>
       <SourceItem27-IndividualCompileOption-0>False</SourceItem27-IndividualCompileOption-0>
+      <TimeTagModified-SourceItem28--0>-8586105299156919175</TimeTagModified-SourceItem28--0>
+      <SourceItem28-IsLockedByUser>False</SourceItem28-IsLockedByUser>
+      <SourceItem28-BuildingTarget-0>True</SourceItem28-BuildingTarget-0>
+      <SourceItem28-IndividualCompileOption-0>False</SourceItem28-IndividualCompileOption-0>
     </Instance>
   </Class>
   <Class Guid="44fa27c9-0aa0-4297-bd3b-2c5c5bdb8881">

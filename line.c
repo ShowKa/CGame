@@ -2,11 +2,13 @@
 #include "bulette.h"
 #include "ship.h"
 #include "block.h"
+#include "explosion.h"
 #include "score.h"
 
 typedef struct Bulette Bulette;
 typedef struct Ship Ship;
 typedef struct Block Block;
+typedef struct Explosion Explosion;
 
 // global
 static char _0[21], _1[21], _2[21], _3[21];
@@ -35,6 +37,7 @@ void displayLines() {
 	Ship ship;
 	Block *blocks;
 	Bulette *bulettes;
+	Explosion *explosions;
 	// init
 	initLines();
 	// block
@@ -50,6 +53,13 @@ void displayLines() {
 		Bulette bul = *bulettes;
 		all[bul.row][bul.column] = bul.symbol;
 		bulettes = bul.next;
+	}
+	// explosion
+	explosions = getExplosions();
+	while (!explosions->isDummy) {
+		Explosion e = *explosions;
+		all[e.row][e.column] = e.show ? e.symbol : EMPTY;
+		explosions = explosions->next;
 	}
 	// ship
 	ship = getShip();
@@ -91,6 +101,9 @@ char breakBlockByBulette() {
 			char sameColumn = (blocks->column == bulettes->column);
 			// 衝突したのでブロックと弾を除去
 			if (sameRow && sameColumn) {
+				// 爆発
+				generateExplosion(blocks->row, blocks->column);
+				// ブロック&弾丸破壊
 				breakBlock(blocks);
 				breakBulettes(bulettes);
 				broken = 1;

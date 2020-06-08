@@ -11,6 +11,7 @@ void game(void) {
 	initBulette();
 	initBlocks();
 	initScore();
+	initExplosion();
 	for (time = 0; time < 120; time++) {
 		char alive;
 		int r;
@@ -82,6 +83,19 @@ void Excep_ICU_IRQ1(void){
 		start_TIMER();
 	}
 }
+
+
+// CMT0 Š„ž‚Ýˆ—
+void Excep_CMT0_CMI0(void){ 
+	char timeIsStart = isStart_TIMER();
+	twinkleAllExplosion();
+	removeDisappearedExplosions();
+	displayLines();
+	if (timeIsStart) {
+		start_TIMER();
+	}
+}
+
 
 void checkBrokenBlock() {
 	char broken = breakBlockByBulette();
