@@ -22,12 +22,14 @@ int getRowOfShip() {
 	return theShip.row;
 }
 
-void launch() {
+int launch() {
 	int r = getRowOfShip();
+	Bulette generated;
 	if (existBuletteAt(r, 1)) {
-		return;
+		return 0;
 	}
-	generateBulette(r, 1);
+	generated = generateBulette(r, 1);
+	return generated.isDummy ? 1 : 0;
 }
 
 char getShipSymbol() {

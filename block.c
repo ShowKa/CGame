@@ -24,6 +24,9 @@ void initBlocks() {
 
 Block generateBlock(int row) {
 	Block *new_bp = (Block *)malloc(sizeof(Block));
+	if (new_bp == NULL) {
+		return blockDummy;
+	}
 	(*new_bp).row = row;
 	(*new_bp).column = 19;
 	(*new_bp).symbol = 0xff;

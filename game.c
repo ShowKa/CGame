@@ -1,9 +1,13 @@
 #include "iodefine.h"
 #include "vect.h"
+#include "Block.h"
 
 void game(void);
 void endGame();
+void error();
 void checkBrokenBlock();
+
+typedef struct Block Block;
 
 void game(void) {
 	unsigned long int time;
@@ -15,6 +19,7 @@ void game(void) {
 	for (time = 0; time < 120; time++) {
 		char alive;
 		int r;
+		Block generated;
 		// stat
 		start_TPU8();
 		// ---
@@ -32,7 +37,13 @@ void game(void) {
 		// ---
 		r = decideRow();
 		if (r != -1) {
-			generateBlock(r);
+			generated = generateBlock(r);
+			if (generated.isDummy) {
+				char message[16] = "error gen Block";
+				message[15] = 0x00;
+				error(message);
+				return;
+			}
 		}
 		// ---
 		// check alive
@@ -52,13 +63,25 @@ void game(void) {
 }
 
 void endGame() {
-	char message[] = "GAME OVER !!";
-	int p_scoreMessage = getScoreMessage();
+	int p_scoreMessage;
+	// game over message
+	char message[13] = "GAME OVER !!";
+	message[12] = 0x00;
 	LCD_clear();
 	LCD_locate(1,2);
 	LCD_putstr(&message);
+	// score
+	p_scoreMessage = getScoreMessage();
 	LCD_locate(1,3);
 	LCD_putstr(p_scoreMessage);
+	delay_s(5);
+	game();
+}
+
+void error(char *message) {
+	LCD_clear();
+	LCD_locate(1,2);
+	LCD_putstr(message);
 	delay_s(5);
 	game();
 }
@@ -66,7 +89,13 @@ void endGame() {
 // ICU IRQ0
 void Excep_ICU_IRQ0(void){
 	char timeIsStart = isStart_TIMER();
-	launch();
+	int errorCode = launch();
+	if (errorCode) {
+		char message[15] = "cannot launch!";
+		message[14] = 0x00;
+		error(message);
+		return;
+	}
 	displayLines();
 	checkBrokenBlock();
 	if (timeIsStart) {
