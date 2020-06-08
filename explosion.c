@@ -26,7 +26,7 @@ Explosion generateExplosion(int row, int column) {
 	(*new_p).column = column;
 	(*new_p).age = 0;
 	(*new_p).symbol = EXPLOSION;
-	(*new_p).show = 0;
+	(*new_p).show = 1;
 	(*new_p).next = explosions;
 	(*new_p).isDummy = 0;
 	explosions = new_p;
@@ -67,7 +67,7 @@ void removeDisappearedExplosions() {
 	Explosion *wp = explosions;
 	int i = 0;
 	while (!wp->isDummy) {
-		if (wp->age >= 5) {
+		if (wp->age >= 3) {
 			wp = wp->next;
 			removeExplosionByIndex(i);
 			continue;

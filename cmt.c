@@ -1,18 +1,10 @@
 /*
- CMT0_int_500ms.c
-
  CMT0_割込み動作確認
- 約500ms間隔でCMT0の割込みがされ、LEDが点滅する確認プログラム
 */
 #include <machine.h>
 #include "iodefine.h"
 
 #include "vect.h"	//割込み関数定義★（割込み関数と一緒に追加）
-
-//*** CMT0 割込み処理 *****
-void Excep_CMT0_CMI0(void){ 
-
-}
 
 void init_CMT0(void)
 {
