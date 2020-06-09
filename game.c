@@ -63,17 +63,15 @@ void game(void) {
 }
 
 void endGame() {
-	int p_scoreMessage;
 	// game over message
-	char message[13] = "GAME OVER !!";
+	char static message[13] = "GAME OVER !!";
 	message[12] = 0x00;
 	LCD_clear();
 	LCD_locate(1,2);
-	LCD_putstr(&message);
+	LCD_putstr(message);
 	// score
-	p_scoreMessage = getScoreMessage();
 	LCD_locate(1,3);
-	LCD_putstr(p_scoreMessage);
+	LCD_putstr(getScoreMessage());
 	delay_s(5);
 	game();
 }
