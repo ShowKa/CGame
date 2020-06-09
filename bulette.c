@@ -12,6 +12,9 @@ Bulette *getBulettes() {
 
 Bulette generateBulette(int r, int c) {
 	Bulette *bp = (Bulette *)malloc(sizeof(Bulette));
+	if (bp == NULL) {
+		return buletteDummy;
+	}
 	(*bp).row = r;
 	(*bp).column = c;
 	(*bp).symbol = 0x7d;

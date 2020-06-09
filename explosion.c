@@ -22,6 +22,11 @@ void initExplosion() {
 
 Explosion generateExplosion(int row, int column) {
 	Explosion *new_p = (Explosion *)malloc(sizeof(Explosion));
+	if (new_p == NULL) {
+		// reset
+		explosions = &explosionDummy;
+		return *explosions;
+	}
 	(*new_p).row = row;
 	(*new_p).column = column;
 	(*new_p).age = 0;

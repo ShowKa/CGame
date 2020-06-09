@@ -1,6 +1,6 @@
 static int score = 0;
 static char message[17] = "YOUR SCORE: ";
-	
+
 void initScore() {
 	score = 0;
 }
@@ -10,7 +10,6 @@ int getScore() {
 }
 
 char *getScoreMessage() {
-	int score = getScore();
 	char sign = score >= 0 ? '+' : '-';
 	int abbs_score = score >= 0 ? score : -1 * score;
 	message[12] = sign;

@@ -7,6 +7,6 @@ struct Ship {
 void moveUpShip();
 char isShip(char target);
 int getRowOfShip();
-void launch();
+int launch();
 char getShipSymbol();
 struct Ship getShip();
